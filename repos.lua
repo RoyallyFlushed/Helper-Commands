@@ -1,5 +1,5 @@
 
-
+--[[  Map Command: p5.js source  ]]
 --// maps a given range from a specific iterator to a new range
 local function map(n, start, stop, newStart, newStop, withinBounds)
     local value = ((n - start) / (stop - start)) * (newStop - newStart) + newStart
@@ -17,10 +17,10 @@ local function map(n, start, stop, newStart, newStop, withinBounds)
     end
 end
 
-print(map(12, 50, 100, 2, 10, true))
-
+--// EX:
 for i = 0, 600 do
     print(map(i, 0, 600, 0, 255, true))
     -->> Outputs the range 0-600 mapped between 0-255
 end
+--
 
