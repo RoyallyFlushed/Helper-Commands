@@ -1,4 +1,16 @@
 
+--[[  Constrain Command: p5.js source  ]]
+local function constrain(n, low, high)
+    return math.max(math.min(n, high), low)
+end
+
+--// EX:
+for angle = 1, 100 do
+    local constrainedAngle = constrain(angle, 1, 50) 
+end
+-->> constrainedAngle will never exceed 50 in value
+--
+
 --[[  Map Command: p5.js source  ]]
 --// maps a given range from a specific iterator to a new range
 local function map(n, start, stop, newStart, newStop, withinBounds)
@@ -11,9 +23,9 @@ local function map(n, start, stop, newStart, newStop, withinBounds)
     
     --// Returns values constrained to exact range
     if newStart < newStop then
-        return math.max(math.min(value, newStop), newStart)
+        return constrain(value, newStart, newStop)
     else
-        return math.max(math.min(value, newStart), newStop)
+        return constrain(value, newStop, newStart)
     end
 end
 
